@@ -21,8 +21,25 @@ class NCFDataLoader(BaseDataLoader):
 
 class ScoreDataSet(Dataset):
     def __init__(self, file_path):
-        self.array = pd.read_csv(file_path).values
+        self.data = pd.read_csv(file_path, sep='\t',
+                       names=["uid", "user_city", "item_id", "author_id", "item_city", "channel", "finish", "like",
+                              "music_id", "device", "time", "duration_time"])
+        self.y = self.data["finish"].values
+        self.X = self.data.drop(columns=["finish", "like"]).values
+
+    def __getitem__(self, item):
+        return self.X[item, :], self.y[item]
+
+    def __len__(self):
+        return self.y.shape[0]
 
 
+class ScoreDataLoader(BaseDataLoader):
+    """
+    MNIST data loading demo using BaseDataLoader
+    """
 
+    def __init__(self, data_dir, batch_size, shuffle=True, validation_split=0.0, num_workers=1, training=True):
+        self.dataset = ScoreDataSet(data_dir)
+        super().__init__(self.dataset, batch_size, shuffle, validation_split, num_workers)
 

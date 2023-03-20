@@ -6,8 +6,8 @@
         "args": {}
     },
     "data_loader": {
-        "type": "ScoreDataLoader",
-        "args":{
+        "type": "NCFDataLoader",
+        "args": {
             "data_dir": "data/byterec_sample.txt",
             "batch_size": 32,
             "shuffle": true,
@@ -17,7 +17,7 @@
     },
     "optimizer": {
         "type": "Adam",
-        "args":{
+        "args": {
             "lr": 0.001,
             "weight_decay": 0,
             "amsgrad": true
@@ -25,7 +25,8 @@
     },
     "loss": "nll_loss",
     "metrics": [
-        "accuracy", "top_k_acc"
+        "accuracy",
+        "top_k_acc"
     ],
     "lr_scheduler": {
         "type": "StepLR",

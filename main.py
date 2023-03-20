@@ -9,8 +9,7 @@ import model.model as module_arch
 import model.loss as module_loss
 import model.metric as module_metric
 from trainer import Trainer
-
-# from deepctr_torch.models import MMOE
+from deepctr_torch.models import DeepFM, MMOE
 
 SEED = 123
 torch.manual_seed(SEED)
@@ -38,7 +37,6 @@ def main(config):
                       data_loader=data_loader,
                       valid_data_loader=valid_data_loader,
                       lr_scheduler=lr_scheduler)
-
     trainer.train()
 
 
@@ -59,4 +57,12 @@ if __name__ == '__main__':
     config_local = MyConfigParser.from_config('./config.json')
     logger = config_local.get_logger('train')
     data_loader = config_local.init_obj('data_loader', module_data)
-    print(data_loader)
+    valid_data_loader = data_loader.split_validation()
+
+
+    # from data_loader.data_loaders import ScoreDataSet
+    # from torch.utils.data import DataLoader
+    # scoreDataSet = ScoreDataSet("data/byterec_sample.txt")
+    # train_dataloader = DataLoader(dataset=scoreDataSet, batch_size=32, shuffle=True)
+
+

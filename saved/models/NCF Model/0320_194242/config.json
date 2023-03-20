@@ -6,18 +6,18 @@
         "args": {}
     },
     "data_loader": {
-        "type": "ScoreDataLoader",
-        "args":{
-            "data_dir": "data/byterec_sample.txt",
-            "batch_size": 32,
+        "type": "NCFDataLoader",
+        "args": {
+            "data_dir": "data/",
+            "batch_size": 128,
             "shuffle": true,
-            "validation_split": 0.2,
+            "validation_split": 0.1,
             "num_workers": 2
         }
     },
     "optimizer": {
         "type": "Adam",
-        "args":{
+        "args": {
             "lr": 0.001,
             "weight_decay": 0,
             "amsgrad": true
@@ -25,7 +25,8 @@
     },
     "loss": "nll_loss",
     "metrics": [
-        "accuracy", "top_k_acc"
+        "accuracy",
+        "top_k_acc"
     ],
     "lr_scheduler": {
         "type": "StepLR",
