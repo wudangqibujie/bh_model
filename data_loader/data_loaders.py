@@ -21,11 +21,9 @@ class NCFDataLoader(BaseDataLoader):
 
 class ScoreDataSet(Dataset):
     def __init__(self, file_path):
-        self.data = pd.read_csv(file_path, sep='\t',
-                       names=["uid", "user_city", "item_id", "author_id", "item_city", "channel", "finish", "like",
-                              "music_id", "device", "time", "duration_time"])
-        self.y = self.data["finish"].values
-        self.X = self.data.drop(columns=["finish", "like"]).values
+        self.data = pd.read_csv(file_path)
+        self.y = self.data["label"].values
+        self.X = self.data.drop(columns=["label"]).values
 
     def __getitem__(self, item):
         return self.X[item, :], self.y[item]

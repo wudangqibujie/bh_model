@@ -1,5 +1,5 @@
 import torch
-
+from sklearn.metrics import roc_auc_score, roc_curve
 
 def accuracy(output, target):
     with torch.no_grad():
@@ -18,3 +18,12 @@ def top_k_acc(output, target, k=3):
         for i in range(k):
             correct += torch.sum(pred[:, i] == target).item()
     return correct / len(target)
+
+
+def auc(output, target):
+    return roc_auc_score(target, output.detach().numpy())
+
+
+def ks(output, target):
+    FPR, TPR, _ = roc_curve(target, output.detach().numpy())
+    return abs(FPR - TPR).max()

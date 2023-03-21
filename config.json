@@ -1,14 +1,17 @@
 {
-    "name": "NCF Model",
+    "name": "FM Model",
     "n_gpu": 1,
     "arch": {
-        "type": "NCFModel",
-        "args": {}
+        "type": "FMModel",
+        "args": {
+            "field_dims": [198, 107, 199, 199, 109, 4, 72, 198],
+            "embed_dim": 128
+        }
     },
     "data_loader": {
         "type": "ScoreDataLoader",
         "args":{
-            "data_dir": "data/byterec_sample.txt",
+            "data_dir": "data/byterec_sample.csv",
             "batch_size": 32,
             "shuffle": true,
             "validation_split": 0.2,
@@ -25,7 +28,7 @@
     },
     "loss": "nll_loss",
     "metrics": [
-        "accuracy", "top_k_acc"
+        "ks", "auc"
     ],
     "lr_scheduler": {
         "type": "StepLR",
@@ -37,7 +40,7 @@
     "trainer": {
         "epochs": 100,
         "save_dir": "saved/",
-        "save_period": 1,
+        "save_period": 5,
         "verbosity": 2,
         "monitor": "min val_loss",
         "early_stop": 10,

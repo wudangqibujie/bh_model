@@ -2,6 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../bh_model_backup/.idea/bh_model.iml" filepath="$PROJECT_DIR$/../bh_model_backup/.idea/bh_model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../darts/.idea/darts.iml" filepath="$PROJECT_DIR$/../darts/.idea/darts.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/jay_bh_model.iml" filepath="$PROJECT_DIR$/.idea/jay_bh_model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../github_project/pytorch-template/.idea/pytorch-template.iml" filepath="$PROJECT_DIR$/../../github_project/pytorch-template/.idea/pytorch-template.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/std_ncf.iml" filepath="$PROJECT_DIR$/.idea/std_ncf.iml" />
     </modules>
   </component>

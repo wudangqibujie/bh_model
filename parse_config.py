@@ -9,8 +9,9 @@ from utils import read_json, write_json
 
 
 class MyConfigParser:
-    def __init__(self, config, task_id=None):
+    def __init__(self, config, task_id=None, resume=None):
         self.log_dir = None
+        self.resume = resume
         self._config = config
         save_dir = Path(self._config['trainer']['save_dir'])
         task_name = self._config['name']
