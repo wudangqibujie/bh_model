@@ -4,13 +4,22 @@
     "arch": {
         "type": "FMModel",
         "args": {
-            "field_dims": [198, 107, 199, 199, 109, 4, 72, 198],
+            "field_dims": [
+                198,
+                107,
+                199,
+                199,
+                109,
+                4,
+                72,
+                198
+            ],
             "embed_dim": 128
         }
     },
     "data_loader": {
         "type": "ScoreDataLoader",
-        "args":{
+        "args": {
             "data_dir": "data/byterec_sample.csv",
             "batch_size": 32,
             "shuffle": true,
@@ -20,7 +29,7 @@
     },
     "optimizer": {
         "type": "Adam",
-        "args":{
+        "args": {
             "lr": 0.001,
             "weight_decay": 0,
             "amsgrad": true
@@ -28,7 +37,8 @@
     },
     "loss": "nll_loss",
     "metrics": [
-        "ks", "auc"
+        "ks",
+        "auc"
     ],
     "lr_scheduler": {
         "type": "StepLR",

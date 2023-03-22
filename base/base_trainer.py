@@ -22,7 +22,6 @@ class BaseTrainer:
         self.save_period = cfg_trainer['save_period']
         self.monitor = cfg_trainer.get('monitor', 'off')
 
-        # configuration to monitor model performance and save best
         if self.monitor == 'off':
             self.mnt_mode = 'off'
             self.mnt_best = 0
@@ -39,7 +38,6 @@ class BaseTrainer:
 
         self.checkpoint_dir = config.get_save_dir
 
-        # setup visualization writer instance                
         self.writer = TensorboardWriter(config.log_dir, self.logger, cfg_trainer['tensorboard'])
 
         if config.resume is not None:
@@ -47,22 +45,14 @@ class BaseTrainer:
 
     @abstractmethod
     def _train_epoch(self, epoch):
-        """
-        Training logic for an epoch
-
-        :param epoch: Current epoch number
-        """
         raise NotImplementedError
 
     def train(self):
-        """
-        Full training logic
-        """
         not_improved_count = 0
         for epoch in range(self.start_epoch, self.epochs + 1):
             result = self._train_epoch(epoch)
 
-            # save logged informations into log dict
+            # 记录每epoch的指标结果
             log = {'epoch': epoch}
             log.update(result)
 

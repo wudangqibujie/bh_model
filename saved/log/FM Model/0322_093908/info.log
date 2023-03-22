@@ -1,0 +1,18 @@
+2023-03-22 09:39:08,158 - train - INFO - FMModel(
+  (embedding): FeaturesEmbedding(
+    (embedding): Embedding(1086, 128)
+  )
+  (linear): FeaturesLinear(
+    (fc): Embedding(1086, 1)
+  )
+  (fm): FactorizationMachine()
+)
+Trainable parameters: 140095
+2023-03-22 09:39:08,221 - trainer - WARNING - Warning: visualization (Tensorboard) is configured to use, but currently not installed on this machine. Please install TensorboardX with 'pip install tensorboardx', upgrade PyTorch to version >= 1.1 to use 'torch.utils.tensorboard' or turn off the option in the 'config.json' file.
+2023-03-22 09:39:21,295 - trainer - INFO -     epoch          : 1
+2023-03-22 09:39:21,295 - trainer - INFO -     loss           : -0.43188882200047374
+2023-03-22 09:39:21,295 - trainer - INFO -     ks             : 0.32200579157908543
+2023-03-22 09:39:21,295 - trainer - INFO -     auc            : 0.42800873338832685
+2023-03-22 09:39:21,295 - trainer - INFO -     val_loss       : -0.40203656256198883
+2023-03-22 09:39:21,295 - trainer - INFO -     val_ks         : 0.29166666666666663
+2023-03-22 09:39:21,295 - trainer - INFO -     val_auc        : 0.5395833333333333

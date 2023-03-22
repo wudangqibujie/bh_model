@@ -1,0 +1,24 @@
+2023-03-22 13:54:02,331 - train - INFO - FMModel(
+  (embedding): FeaturesEmbedding(
+    (embedding): Embedding(1086, 128)
+  )
+  (linear): FeaturesLinear(
+    (fc): Embedding(1086, 1)
+  )
+  (fm): FactorizationMachine()
+)
+Trainable parameters: 140095
+2023-03-22 13:54:17,604 - trainer - INFO -     epoch          : 1
+2023-03-22 13:54:17,605 - trainer - INFO -     loss           : -0.43188882200047374
+2023-03-22 13:54:17,605 - trainer - INFO -     ks             : 0.32200579157908543
+2023-03-22 13:54:17,605 - trainer - INFO -     auc            : 0.42800873338832685
+2023-03-22 13:54:17,605 - trainer - INFO -     val_loss       : -0.40203656256198883
+2023-03-22 13:54:17,605 - trainer - INFO -     val_ks         : 0.29166666666666663
+2023-03-22 13:54:17,606 - trainer - INFO -     val_auc        : 0.5395833333333333
+2023-03-22 13:54:32,829 - trainer - INFO -     epoch          : 2
+2023-03-22 13:54:32,829 - trainer - INFO -     loss           : -0.33833733573555946
+2023-03-22 13:54:32,829 - trainer - INFO -     ks             : 0.2589273426802031
+2023-03-22 13:54:32,830 - trainer - INFO -     auc            : 0.43933860444157935
+2023-03-22 13:54:32,830 - trainer - INFO -     val_loss       : -0.4958036243915558
+2023-03-22 13:54:32,830 - trainer - INFO -     val_ks         : 0.4083333333333333
+2023-03-22 13:54:32,830 - trainer - INFO -     val_auc        : 0.41041666666666665
