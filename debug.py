@@ -169,17 +169,14 @@ from deepctr_torch.models import DIEN
 #     print("%s test LogLoss" % target_name, round(log_loss(test[target[i]].values, pred_ans[:, i]), 4))
 #     print("%s test AUC" % target_name, round(roc_auc_score(test[target[i]].values, pred_ans[:, i]), 4))
 
-
 # ------------------------------------------------------------------------------------------------------------------------------
 import sys
-
 sys.path.insert(0, '..')
 import numpy as np
 import torch
 from deepctr_torch.inputs import (DenseFeat, SparseFeat, VarLenSparseFeat,
                                   get_feature_names)
 from deepctr_torch.models.din import DIN
-
 
 def get_xy_fd():
     feature_columns = [SparseFeat('user', 3, embedding_dim=8), SparseFeat('gender', 2, embedding_dim=8),
