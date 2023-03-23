@@ -9,16 +9,13 @@ import model.model as module_arch
 import model.loss as module_loss
 import model.metric as module_metric
 from trainer import Trainer
-
-# from deepctr_torch.models import MMOE
-
+from parse_config import MyConfigParser
 
 SEED = 123
 torch.manual_seed(SEED)
 np.random.seed(SEED)
 
 
-# keep_bh_model_feature_multilabel
 def main(config):
     logger = config.get_logger('train')
     data_loader = config.init_obj('data_loader', module_data)
@@ -44,19 +41,6 @@ def main(config):
 
 
 if __name__ == '__main__':
-    # args = argparse.ArgumentParser(description='NCF Model')
-    # args.add_argument('-c', '--config', default=None, type=str)
-    # args.add_argument('-r', '--resume', default=None, type=str)
-    # args.add_argument('-d', '--device', default=None, type=str)
-    #
-    # AddtionalArgs = collections.namedtuple('AddtionalArgs', ["flags", "type", "target"])
-    # options = [
-    #     AddtionalArgs(['--lr', '--learning_rate'], type=float, target='optimizer;args;lr'),
-    #     AddtionalArgs(['--bs', '--batch_size'], type=int, target='data_loader;args;batch_size')
-    # ]
-    # config = ConfigParser.from_args(args)
-    from parse_config import MyConfigParser
-
     config_local = MyConfigParser.from_config('./config.json')
     logger = config_local.get_logger('train')
     data_loader = config_local.init_obj('data_loader', module_data)

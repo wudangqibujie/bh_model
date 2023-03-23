@@ -1,7 +1,22 @@
 from torchvision import datasets, transforms
 from base import BaseDataLoader
-from torch.utils.data import Dataset
+from torch.utils.data import Dataset, IterableDataset
 import pandas as pd
+import os
+
+
+# from torch.utils.data import IterableDataset
+#
+# class MyIterableDataset(IterableDataset):
+#     def __init__(self, csv_dir):
+#         self.csv_dir = csv_dir
+#
+#     def __iter__(self):
+#         for file_name in os.listdir(self.csv_dir):
+#             if file_name.endswith('.csv'):
+#                 file_path = os.path.join(self.csv_dir, file_name)
+#                 for chunk in pd.read_csv(file_path, chunksize=1024):
+#                     yield chunk.values
 
 
 class NCFDataLoader(BaseDataLoader):
@@ -32,6 +47,18 @@ class ScoreDataSet(Dataset):
         return self.y.shape[0]
 
 
+class ScoreDataSetIterable(IterableDataset):
+    def __init__(self, data_dir):
+        self.data_dir = data_dir
+
+    def __iter__(self):
+        for file_name in os.listdir(self.csv_dir):
+            if file_name.endswith('.csv'):
+                file_path = os.path.join(self.csv_dir, file_name)
+                for chunk in pd.read_csv(file_path, chunksize=1024):
+                    yield chunk.values
+
+
 class ScoreDataLoader(BaseDataLoader):
     """
     MNIST data loading demo using BaseDataLoader
@@ -40,4 +67,3 @@ class ScoreDataLoader(BaseDataLoader):
     def __init__(self, data_dir, batch_size, shuffle=True, validation_split=0.0, num_workers=1, training=True):
         self.dataset = ScoreDataSet(data_dir)
         super().__init__(self.dataset, batch_size, shuffle, validation_split, num_workers)
-

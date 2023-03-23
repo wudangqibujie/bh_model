@@ -4,7 +4,7 @@ from dataclasses import dataclass
 class SparseFeat:
     name: str
     vocabulary_size: int
-    embedding_dim: int #  embedding_dim = 6 * int(pow(vocabulary_size, 0.25))
+    embedding_dim: int
     use_hash: bool
     dtype: str
     embedding_name: str
