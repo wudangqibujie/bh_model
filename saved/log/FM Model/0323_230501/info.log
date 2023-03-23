@@ -1,0 +1,10 @@
+2023-03-23 23:05:01,481 - train - INFO - FMModel(
+  (embedding): FeaturesEmbedding(
+    (embedding): Embedding(1086, 128)
+  )
+  (linear): FeaturesLinear(
+    (fc): Embedding(1086, 1)
+  )
+  (fm): FactorizationMachine()
+)
+Trainable parameters: 140095
