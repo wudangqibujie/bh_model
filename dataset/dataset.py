@@ -243,3 +243,7 @@ class DataSet:
     #         print(rs)
     #     except tf.errors.OutOfRangeError:
     #         break
+
+    # from pyspark.sql.functions import when
+    #
+    # df = df.withColumn('category', when(df.age < 18, 'child').otherwise('adult'))

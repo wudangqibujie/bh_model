@@ -10,6 +10,7 @@ from tsp.timeseries import TimeSeries
 import pandas as pd
 import requests
 
+from deepctr_torch.models import MMOE
 _DEFAULT_PATH = "https://raw.githubusercontent.com/unit8co/darts/master/datasets"
 
 from tsp.logging import get_logger
@@ -238,7 +239,9 @@ if __name__ == '__main__':
     import matplotlib.pyplot as plt
 
     series1, series2 = series.split_before(0.75)
-    # series1.plot()
+    series1.plot()
     # series2.plot()
-    (series / 20).add_datetime_attribute("month").plot()
+    # (series / 20).add_datetime_attribute("month").plot()
     plt.show()
+
+    # df.write.format("csv").option("header", "true").save("path/to/your/csv/file")

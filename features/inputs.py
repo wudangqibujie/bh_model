@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 
+
 @dataclass
 class SparseFeat:
     name: str
@@ -7,8 +8,6 @@ class SparseFeat:
     embedding_dim: int
     use_hash: bool
     dtype: str
-    embedding_name: str
-    group_name: str
 
 
 @dataclass
@@ -24,4 +23,3 @@ class DenseFeat:
     name: str
     dimension: int
     dtype: str
-

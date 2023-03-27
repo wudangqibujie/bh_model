@@ -6,5 +6,9 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="darts" />
     <orderEntry type="module" module-name="pytorch_tabnet" />
+    <orderEntry type="module" module-name="python" />
+    <orderEntry type="module" module-name="Chinese-Text-Classification-Pytorch" />
+    <orderEntry type="module" module-name="tensorflow_template_application" />
+    <orderEntry type="module" module-name="deepctr_torch" />
   </component>
 </module>

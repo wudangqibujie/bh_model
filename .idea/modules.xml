@@ -2,11 +2,15 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../../github_project/Chinese-Text-Classification-Pytorch/.idea/Chinese-Text-Classification-Pytorch.iml" filepath="$PROJECT_DIR$/../../github_project/Chinese-Text-Classification-Pytorch/.idea/Chinese-Text-Classification-Pytorch.iml" />
       <module fileurl="file://$PROJECT_DIR$/../darts/.idea/darts.iml" filepath="$PROJECT_DIR$/../darts/.idea/darts.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../Anaconda/envs/py36tf14/Lib/site-packages/deepctr_torch/.idea/deepctr_torch.iml" filepath="$PROJECT_DIR$/../../Anaconda/envs/py36tf14/Lib/site-packages/deepctr_torch/.idea/deepctr_torch.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/jay_bh_model.iml" filepath="$PROJECT_DIR$/.idea/jay_bh_model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../github_project/spark/examples/src/main/python/.idea/python.iml" filepath="$PROJECT_DIR$/../../github_project/spark/examples/src/main/python/.idea/python.iml" />
       <module fileurl="file://$PROJECT_DIR$/../../github_project/pytorch-template/.idea/pytorch-template.iml" filepath="$PROJECT_DIR$/../../github_project/pytorch-template/.idea/pytorch-template.iml" />
       <module fileurl="file://$PROJECT_DIR$/../../Anaconda/envs/py36tf14/Lib/site-packages/pytorch_tabnet/.idea/pytorch_tabnet.iml" filepath="$PROJECT_DIR$/../../Anaconda/envs/py36tf14/Lib/site-packages/pytorch_tabnet/.idea/pytorch_tabnet.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/std_ncf.iml" filepath="$PROJECT_DIR$/.idea/std_ncf.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../github_project/tensorflow_template_application/.idea/tensorflow_template_application.iml" filepath="$PROJECT_DIR$/../../github_project/tensorflow_template_application/.idea/tensorflow_template_application.iml" />
     </modules>
   </component>
 </project>

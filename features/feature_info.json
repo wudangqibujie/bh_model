@@ -1,0 +1,61 @@
+{
+    "movie_id": {
+        "type": "sparse",
+        "info": {"vocabulary_size": 12,
+                "embedding_dim": 20,
+                "use_hash": true,
+                "dtype": "int"
+        }
+    },
+    "user_id": {
+        "type": "sparse",
+        "info": {"vocabulary_size": 12,
+                "embedding_dim": 20,
+                "use_hash": true,
+                "dtype": "int"
+        }
+    },
+    "gender": {
+        "type": "sparse",
+        "info": {"vocabulary_size": 12,
+                "embedding_dim": 20,
+                "use_hash": true,
+                "dtype": "int"
+        }
+    },
+    "age": {
+        "type": "dense",
+        "info": {"dimension": 1,
+                  "dtype": "float"
+        }
+    },
+    "occupation": {
+        "type": "sparse",
+        "info": {"vocabulary_size": 12,
+                "embedding_dim": 20,
+                "use_hash": true,
+                "dtype": "int"
+        }
+    },
+    "zip": {
+        "type": "sparse",
+        "info": {"vocabulary_size": 12,
+                "embedding_dim": 20,
+                "use_hash": true,
+                "dtype": "int"
+        }
+    },
+    "genres": {
+        "type": "seq",
+        "sub_type": "sparse",
+        "info": {
+                "max_length": 10
+        },
+        "element_info": {
+                "vocabulary_size": 12,
+                "embedding_dim": 20,
+                "use_hash": true,
+                "dtype": "int"
+        }
+    }
+}
