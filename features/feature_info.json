@@ -1,25 +1,22 @@
 {
     "movie_id": {
         "type": "sparse",
-        "info": {"vocabulary_size": 12,
+        "info": {"category_size": 186,
                 "embedding_dim": 20,
-                "use_hash": true,
                 "dtype": "int"
         }
     },
     "user_id": {
         "type": "sparse",
-        "info": {"vocabulary_size": 12,
+        "info": {"category_size": 192,
                 "embedding_dim": 20,
-                "use_hash": true,
                 "dtype": "int"
         }
     },
     "gender": {
         "type": "sparse",
-        "info": {"vocabulary_size": 12,
+        "info": {"category_size": 1,
                 "embedding_dim": 20,
-                "use_hash": true,
                 "dtype": "int"
         }
     },
@@ -31,30 +28,33 @@
     },
     "occupation": {
         "type": "sparse",
-        "info": {"vocabulary_size": 12,
+        "info": {"category_size": 19,
                 "embedding_dim": 20,
-                "use_hash": true,
                 "dtype": "int"
         }
     },
     "zip": {
         "type": "sparse",
-        "info": {"vocabulary_size": 12,
+        "info": {"category_size": 187,
                 "embedding_dim": 20,
-                "use_hash": true,
                 "dtype": "int"
         }
     },
+    "genres_length": {
+        "type": "dense",
+        "info": {"dimension": 1,
+                  "dtype": "float"
+        }
+    },
     "genres": {
-        "type": "seq",
+        "type": "sequence",
         "sub_type": "sparse",
         "info": {
                 "max_length": 10
         },
         "element_info": {
-                "vocabulary_size": 12,
+                "category_size": 12,
                 "embedding_dim": 20,
-                "use_hash": true,
                 "dtype": "int"
         }
     }

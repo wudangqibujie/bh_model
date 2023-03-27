@@ -1,0 +1,6 @@
+name:             user_id
+vocabulary_size:  12
+embedding_dim:    auto
+use_hash:         true
+dtype:            int
+

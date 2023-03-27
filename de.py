@@ -16,5 +16,26 @@
 # # emb = np.load("../data/tencent-ailab-embedding-zh-d100-v0.2.0-s/tenct.npy")
 # # print(emb)
 
-from features.features import FeatureInfo
-featureInfo = FeatureInfo.from_config('features/feature_info.json')
+# from features.features import FeatureInfo
+# featureInfo = FeatureInfo.from_config('features/feature_info.json')
+import yaml
+
+with open('features/feature.yaml') as f:
+    config = yaml.load(f, Loader=yaml.FullLoader)
+
+from dataclasses import dataclass
+
+@dataclass
+class SparseFeat:
+    name: str
+    vocabulary_size: int
+    embedding_dim: int
+    use_hash: bool
+    dtype: str
+
+    def __post_init__(self):
+        if self.embedding_dim == "auto":
+            self.embedding_dim = 6 * int(pow(self.vocabulary_size, 0.25))
+
+config = SparseFeat(**config)
+print(config)

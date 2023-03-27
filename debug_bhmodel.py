@@ -81,7 +81,8 @@ fixlen_feature_columns = [SparseFeat(feat, data[feat].nunique(), embedding_dim=4
 
 varlen_feature_columns = [VarLenSparseFeat(SparseFeat('genres', vocabulary_size=len(
     key2index) + 1, embedding_dim=4), maxlen=max_len,
-                                           combiner='mean')]  # Notice : value 0 is for padding for sequence input feature
+                                           combiner='mean')]
+# Notice : value 0 is for padding for sequence input feature
 
 linear_feature_columns = fixlen_feature_columns + varlen_feature_columns
 dnn_feature_columns = fixlen_feature_columns + varlen_feature_columns
@@ -94,7 +95,6 @@ model_input = {name: data[name] for name in sparse_features}  #
 model_input["genres"] = genres_list
 
 # 4.Define Model,compile and train
-
 device = 'cpu'
 use_cuda = True
 if use_cuda and torch.cuda.is_available():
