@@ -10,12 +10,13 @@ from tsp.timeseries import TimeSeries
 import pandas as pd
 import requests
 
-from deepctr_torch.models import MMOE
 _DEFAULT_PATH = "https://raw.githubusercontent.com/unit8co/darts/master/datasets"
 
 from tsp.logging import get_logger
 
 logger = get_logger(__name__)
+
+
 class DatasetLoadingException(BaseException):
     pass
 

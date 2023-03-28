@@ -14,8 +14,8 @@ np.random.seed(SEED)
 
 config = MyConfigParser.from_config('config/config.json')
 logger = config.get_logger('train')
-data_loader = config.init_obj('data_loader', module_data)
-valid_data_loader = data_loader.split_validation()
+data_loader = config.init_obj('train_data_loader', module_data)
+valid_data_loader = config.init_obj('valid_data_loader', module_data)
 model = config.init_obj('arch', module_arch)
 logger.info(model)
 device, device_ids = prepare_device(config['n_gpu'])
@@ -32,5 +32,7 @@ trainer = Trainer(model, criterion, metrics, optimizer,
                   device=device,
                   data_loader=data_loader,
                   valid_data_loader=valid_data_loader,
-                  lr_scheduler=lr_scheduler)
+                  lr_scheduler=lr_scheduler,
+                  len_epoch=20)
 trainer.train()
+

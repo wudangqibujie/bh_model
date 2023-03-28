@@ -41,6 +41,8 @@ class Trainer(BaseTrainer):
         self.train_metrics.reset()
         for batch_idx, (data, target) in enumerate(self.data_loader):
             data = data[:, : -2].long()
+            target = target.long()
+            # data = data[:, : -2]
             data, target = data.to(self.device), target.to(self.device)
 
             self.optimizer.zero_grad()
@@ -84,6 +86,7 @@ class Trainer(BaseTrainer):
         with torch.no_grad():
             for batch_idx, (data, target) in enumerate(self.valid_data_loader):
                 data = data[:, : -2].long()
+                target = target.long()
                 data, target = data.to(self.device), target.to(self.device)
                 output = self.model(data)
                 loss = self.criterion(output, target)

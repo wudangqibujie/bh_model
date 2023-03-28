@@ -7,21 +7,37 @@ class FeatureInfo:
     def __init__(self, info):
         self.info = info
 
+    @property
+    def total_sparse_feats(self):
+        return list(filter(lambda x: isinstance(x, SparseFeat), self.info.values()))
+
+    @property
+    def total_dense_feats(self):
+        return list(filter(lambda x: isinstance(x, DenseFeat), self.info.values()))
+
+    @property
+    def total_sequcen_feat(self):
+        return list(filter(lambda x: isinstance(x, VarLenSparseFeat) or isinstance(x, VarLenDenseFeat), self.info.values()))
+
     def set_feature_idx(self, columns):
         st = 0
         for col in columns:
             feat_info = self.info[col]
             if isinstance(feat_info, SparseFeat):
-                self.info["feature_idx"] = (st, st + 1)
+                feat_info.feature_idx = (st, st + 1)
+                # self.info["feature_idx"] = (st, st + 1)
                 st += 1
             elif isinstance(feat_info, DenseFeat):
-                self.info["feature_idx"] = (st, st + 1)
+                feat_info.feature_idx = (st, st + 1)
+                # self.info["feature_idx"] = (st, st + 1)
                 st += 1
             elif isinstance(feat_info, VarLenSparseFeat):
-                self.info["feature_idx"] = (st, st + feat_info.max_length)
+                feat_info.feature_idx = (st, st + feat_info.max_length)
+                # self.info["feature_idx"] = (st, st + feat_info.max_length)
                 st += feat_info.max_length
             elif isinstance(feat_info, VarLenDenseFeat):
-                self.info["feature_idx"] = (st, st + feat_info.max_length)
+                feat_info.feature_idx = (st, st + feat_info.max_length)
+                # self.info["feature_idx"] = (st, st + feat_info.max_length)
                 st += feat_info.max_length
             else:
                 raise

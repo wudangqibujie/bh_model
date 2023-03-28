@@ -28,9 +28,9 @@ import torch
 from sklearn.preprocessing import LabelEncoder
 from tensorflow.python.keras.preprocessing.sequence import pad_sequences
 from deepctr_torch.inputs import SparseFeat, VarLenSparseFeat, get_feature_names, build_input_features, DenseFeat
-from deepctr_torch.models import DeepFM
+from deepctr_torch.models import DeepFM, MMOE
 from collections import OrderedDict
-
+from pytorch_tabnet.multitask import TabNetMultiTaskClassifier
 
 # data = pd.read_csv("./data/movielens_sample.txt")
 # sparse_features = ["movie_id", "user_id",
@@ -65,8 +65,9 @@ from features.features import FeatureInfo
 feature_info = FeatureInfo.from_config('./features/feature_info.json')
 feature_info.set_feature_idx(features_columns)
 print(feature_info.info)
-
-
+print(feature_info.total_dense_feats)
+print(feature_info.total_sequcen_feat)
+print(feature_info.total_sparse_feats)
 
 
 

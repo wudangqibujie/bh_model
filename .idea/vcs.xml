@@ -3,6 +3,7 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../../github_project/Chinese-Text-Classification-Pytorch" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../github_project/EasyRec" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../../github_project/tensorflow_template_application" vcs="Git" />
   </component>
 </project>

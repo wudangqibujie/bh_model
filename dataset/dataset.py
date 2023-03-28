@@ -77,7 +77,7 @@ numeric_cols = [
     "过去六个月的平均月费用",
 ]
 
-df = pd.read_csv("../data/train.csv")
+df = pd.read_csv("../data/customer_judgment/train.csv")
 
 df_num = df[numeric_cols]
 df_label = df[["是否流失"]]
@@ -91,7 +91,7 @@ class DataSet:
     def __init__(self, tf_file, if_onehot=False):
         self.tf_file = tf_file
         self.if_onehot = if_onehot
-        self.df = pd.read_csv("../data/train.csv")
+        self.df = pd.read_csv("../data/customer_judgment/train.csv")
         self.cate_cols = ["地理区域",
                           "是否双频",
                           "是否翻新机",

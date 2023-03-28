@@ -1,3 +1,5 @@
-from features.features import FeatureInfo
+import pandas as pd
 
-featureInfo = FeatureInfo.from_config('./features/feature_info.json')
+df = pd.read_csv("data/customer_judgment/train.csv")
+df.info()
+print(df.columns)

@@ -3,6 +3,7 @@ from base import BaseDataLoader
 from torch.utils.data import Dataset, IterableDataset
 import pandas as pd
 import os
+import torch
 from pathlib import Path
 import glob
 import random
@@ -87,8 +88,8 @@ class ScoreDataSetIterable(IterableDataset, ABC):
                 yield self._map_func(chunk)
 
     def _map_func(self, df_chunk):
-        y = df_chunk["label"].values
-        X = df_chunk.drop(columns=["label"]).values
+        y = torch.Tensor(df_chunk["label"].values)
+        X = torch.Tensor(df_chunk.drop(columns=["label"]).values)
         return X, y
 
 
@@ -109,9 +110,10 @@ class MultiCSVInmemDataSetIterable(IterableDataset, ABC):
                 yield self._map_func(chunk)
 
     def _map_func(self, df_chunk):
-        y = df_chunk["label"].values
-        X = df_chunk.drop(columns=["label"]).values
+        y = torch.Tensor(df_chunk["label"].values)
+        X = torch.Tensor(df_chunk.drop(columns=["label"]).values)
         return X, y
+
 
 class ScoreDataLoader(BaseDataLoader):
     def __init__(self, data_dir, batch_size, shuffle=True, validation_split=0.0, num_workers=1, training=True):

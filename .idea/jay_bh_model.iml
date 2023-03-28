@@ -10,5 +10,6 @@
     <orderEntry type="module" module-name="Chinese-Text-Classification-Pytorch" />
     <orderEntry type="module" module-name="tensorflow_template_application" />
     <orderEntry type="module" module-name="deepctr_torch" />
+    <orderEntry type="module" module-name="EasyRec" />
   </component>
 </module>

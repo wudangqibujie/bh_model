@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/../../github_project/Chinese-Text-Classification-Pytorch/.idea/Chinese-Text-Classification-Pytorch.iml" filepath="$PROJECT_DIR$/../../github_project/Chinese-Text-Classification-Pytorch/.idea/Chinese-Text-Classification-Pytorch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../github_project/EasyRec/.idea/EasyRec.iml" filepath="$PROJECT_DIR$/../../github_project/EasyRec/.idea/EasyRec.iml" />
       <module fileurl="file://$PROJECT_DIR$/../darts/.idea/darts.iml" filepath="$PROJECT_DIR$/../darts/.idea/darts.iml" />
       <module fileurl="file://$PROJECT_DIR$/../../Anaconda/envs/py36tf14/Lib/site-packages/deepctr_torch/.idea/deepctr_torch.iml" filepath="$PROJECT_DIR$/../../Anaconda/envs/py36tf14/Lib/site-packages/deepctr_torch/.idea/deepctr_torch.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/jay_bh_model.iml" filepath="$PROJECT_DIR$/.idea/jay_bh_model.iml" />
