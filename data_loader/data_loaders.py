@@ -10,16 +10,22 @@ import random
 
 
 class ScoreDataSet(Dataset):
-    def __init__(self, file_path):
+    def __init__(self, file_path, callback_func=None):
         self.data = pd.read_csv(file_path)
-        self.y = self.data["label"].values
-        self.X = self.data.drop(columns=["label"]).values
+        self.y = self.data["rating"].values
+        self.X = self.data.drop(columns=["rating"]).values
 
     def __getitem__(self, item):
         return self.X[item, :], self.y[item]
 
     def __len__(self):
         return self.y.shape[0]
+
+
+class ScoreDataLoader(BaseDataLoader):
+    def __init__(self, data_dir, batch_size, drop_last=False, shuffle=True, validation_split=0.0, num_workers=1, training=True):
+        self.dataset = ScoreDataSet(data_dir)
+        super().__init__(self.dataset, batch_size, shuffle, validation_split, num_workers)
 
 
 class MultiFilesBase(IterableDataset, ABC):
@@ -113,9 +119,3 @@ class MultiCSVInmemDataSetIterable(IterableDataset, ABC):
         y = torch.Tensor(df_chunk["label"].values)
         X = torch.Tensor(df_chunk.drop(columns=["label"]).values)
         return X, y
-
-
-class ScoreDataLoader(BaseDataLoader):
-    def __init__(self, data_dir, batch_size, shuffle=True, validation_split=0.0, num_workers=1, training=True):
-        self.dataset = ScoreDataSet(data_dir)
-        super().__init__(self.dataset, batch_size, shuffle, validation_split, num_workers)

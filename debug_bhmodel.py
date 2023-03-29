@@ -18,8 +18,11 @@
 # sparse_feats = ["uid", "user_city", "item_id", "author_id", "item_city", "channel", "music_id",
 #                 "device"]
 # from sklearn.preprocessing import LabelEncoder, MinMaxScaler
-#
-#
+
+
+
+
+
 # feat_dim_info = []
 # for feat in sparse_feats:
 #     lbe = LabelEncoder()
@@ -41,72 +44,72 @@ from deepctr_torch.models import DIEN
 # INSERT OVERWRITE LOCAL DIRECTORY '/path/to/local/directory' ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' SELECT * FROM table_name;
 
 # ------------------------------------------------------------------------------------------------------------------------------
-# import numpy as np
-# import pandas as pd
-# import torch
-# from sklearn.preprocessing import LabelEncoder
-# from tensorflow.python.keras.preprocessing.sequence import pad_sequences
-# from deepctr_torch.inputs import SparseFeat, VarLenSparseFeat, get_feature_names, build_input_features
-# from deepctr_torch.models import DeepFM, MMOE
-#
-#
-# def split(x):
-#     key_ans = x.split('|')
-#     for key in key_ans:
-#         if key not in key2index:
-#             key2index[key] = len(key2index) + 1
-#     return list(map(lambda x: key2index[x], key_ans))
-#
-#
-# data = pd.read_csv("./data/movielens_sample.txt")
-# sparse_features = ["movie_id", "user_id",
-#                    "gender", "age", "occupation", "zip", ]
-# target = ['rating']
-#
-# # 1.Label Encoding for sparse features,and process sequence features
-# for feat in sparse_features:
-#     lbe = LabelEncoder()
-#     data[feat] = lbe.fit_transform(data[feat])
-# # preprocess the sequence feature
-# key2index = {}
-# genres_list = list(map(split, data['genres'].values))
-# genres_length = np.array(list(map(len, genres_list)))
-# max_len = max(genres_length)
-# # Notice : padding=`post`
-# genres_list = pad_sequences(genres_list, maxlen=max_len, padding='post', )
-#
-# # 2.count #unique features for each sparse field and generate feature config for sequence feature
-# fixlen_feature_columns = [SparseFeat(feat, data[feat].nunique(), embedding_dim=4)
-#                           for feat in sparse_features]
-#
-# varlen_feature_columns = [VarLenSparseFeat(SparseFeat('genres', vocabulary_size=len(
-#     key2index) + 1, embedding_dim=4), maxlen=max_len,
-#                                            combiner='mean')]
-# # Notice : value 0 is for padding for sequence input feature
-#
-# linear_feature_columns = fixlen_feature_columns + varlen_feature_columns
-# dnn_feature_columns = fixlen_feature_columns + varlen_feature_columns
-#
-# feature_names = get_feature_names(linear_feature_columns + dnn_feature_columns)
-# print(build_input_features(linear_feature_columns + dnn_feature_columns))
-# print(feature_names)
-# # 3.generate input data for model
-# model_input = {name: data[name] for name in sparse_features}  #
-# model_input["genres"] = genres_list
-#
-# # 4.Define Model,compile and train
-# device = 'cpu'
-# use_cuda = True
-# if use_cuda and torch.cuda.is_available():
-#     print('cuda ready...')
-#     device = 'cuda:0'
-#
-# print(linear_feature_columns)
-# print(dnn_feature_columns)
-#
-# model = DeepFM(linear_feature_columns, dnn_feature_columns, task='regression', device=device)
-# model.compile("adam", "mse", metrics=['mse'], )
-# history = model.fit(model_input, data[target].values, batch_size=256, epochs=10, verbose=2, validation_split=0.2)
+import numpy as np
+import pandas as pd
+import torch
+from sklearn.preprocessing import LabelEncoder
+from tensorflow.python.keras.preprocessing.sequence import pad_sequences
+from deepctr_torch.inputs import SparseFeat, VarLenSparseFeat, get_feature_names, build_input_features
+from deepctr_torch.models import DeepFM, MMOE
+
+
+def split(x):
+    key_ans = x.split('|')
+    for key in key_ans:
+        if key not in key2index:
+            key2index[key] = len(key2index) + 1
+    return list(map(lambda x: key2index[x], key_ans))
+
+
+data = pd.read_csv("./data/movielens_sample.txt")
+sparse_features = ["movie_id", "user_id",
+                   "gender", "age", "occupation", "zip", ]
+target = ['rating']
+
+# 1.Label Encoding for sparse features,and process sequence features
+for feat in sparse_features:
+    lbe = LabelEncoder()
+    data[feat] = lbe.fit_transform(data[feat])
+# preprocess the sequence feature
+key2index = {}
+genres_list = list(map(split, data['genres'].values))
+genres_length = np.array(list(map(len, genres_list)))
+max_len = max(genres_length)
+# Notice : padding=`post`
+genres_list = pad_sequences(genres_list, maxlen=max_len, padding='post', )
+
+# 2.count #unique features for each sparse field and generate feature config for sequence feature
+fixlen_feature_columns = [SparseFeat(feat, data[feat].nunique(), embedding_dim=4)
+                          for feat in sparse_features]
+
+varlen_feature_columns = [VarLenSparseFeat(SparseFeat('genres', vocabulary_size=len(
+    key2index) + 1, embedding_dim=4), maxlen=max_len,
+                                           combiner='mean')]
+# Notice : value 0 is for padding for sequence input feature
+
+linear_feature_columns = fixlen_feature_columns + varlen_feature_columns
+dnn_feature_columns = fixlen_feature_columns + varlen_feature_columns
+
+feature_names = get_feature_names(linear_feature_columns + dnn_feature_columns)
+print(build_input_features(linear_feature_columns + dnn_feature_columns))
+print(feature_names)
+# 3.generate input data for model
+model_input = {name: data[name] for name in sparse_features}  #
+model_input["genres"] = genres_list
+
+# 4.Define Model,compile and train
+device = 'cpu'
+use_cuda = True
+if use_cuda and torch.cuda.is_available():
+    print('cuda ready...')
+    device = 'cuda:0'
+
+print(linear_feature_columns)
+print(dnn_feature_columns)
+
+model = DeepFM(linear_feature_columns, dnn_feature_columns, task='regression', device=device)
+model.compile("adam", "mse", metrics=['mse'], )
+history = model.fit(model_input, data[target].values, batch_size=256, epochs=10, verbose=2, validation_split=0.2)
 
 
 

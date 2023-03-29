@@ -3,9 +3,12 @@ import json
 import pprint
 
 
-class FeatureInfo:
+class MyFeatureInfo:
     def __init__(self, info):
         self.info = info
+
+    def __getitem__(self, name):
+        return self.info[name]
 
     @property
     def total_sparse_feats(self):
