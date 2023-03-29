@@ -8,22 +8,6 @@
             "embed_dim": 128
         }
     },
-    "train_data_loader": {
-        "type": "ScoreDataSetIterable",
-        "args":{
-            "data_dir": "./test_data",
-            "batch_size": 32,
-            "drop_last": true
-        }
-    },
-    "valid_data_loader": {
-        "type": "ScoreDataSetIterable",
-        "args":{
-            "data_dir": "./test_data",
-            "batch_size": 32,
-            "drop_last": true
-        }
-    },
     "optimizer": {
         "type": "Adam",
         "args":{

@@ -31,7 +31,6 @@ from deepctr_torch.inputs import SparseFeat, VarLenSparseFeat, get_feature_names
 from deepctr_torch.models import DeepFM, MMOE
 from collections import OrderedDict
 from pytorch_tabnet.multitask import TabNetMultiTaskClassifier
-
 # data = pd.read_csv("./data/movielens_sample.txt")
 # sparse_features = ["movie_id", "user_id",
 #                    "gender", "age", "occupation", "zip", ]
