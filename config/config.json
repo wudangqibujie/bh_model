@@ -8,6 +8,7 @@
             "embed_dim": 128
         }
     },
+<<<<<<< HEAD
     "train_data_loader": {
         "type": "ScoreDataLoader",
         "args":{
@@ -24,6 +25,8 @@
             "drop_last": true
         }
     },
+=======
+>>>>>>> e4aaf890106a73ba971f8329c03535ee219ca57c
     "optimizer": {
         "type": "Adam",
         "args":{
