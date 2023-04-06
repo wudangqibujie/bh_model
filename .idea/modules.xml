@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/../../github_project/EasyRec/.idea/EasyRec.iml" filepath="$PROJECT_DIR$/../../github_project/EasyRec/.idea/EasyRec.iml" />
       <module fileurl="file://$PROJECT_DIR$/../darts/.idea/darts.iml" filepath="$PROJECT_DIR$/../darts/.idea/darts.iml" />
       <module fileurl="file://$PROJECT_DIR$/../../Anaconda/envs/py36tf14/Lib/site-packages/deepctr_torch/.idea/deepctr_torch.iml" filepath="$PROJECT_DIR$/../../Anaconda/envs/py36tf14/Lib/site-packages/deepctr_torch/.idea/deepctr_torch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../feature_engine/.idea/feature_engine.iml" filepath="$PROJECT_DIR$/../../feature_engine/.idea/feature_engine.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/jay_bh_model.iml" filepath="$PROJECT_DIR$/.idea/jay_bh_model.iml" />
       <module fileurl="file://$PROJECT_DIR$/../../github_project/spark/examples/src/main/python/.idea/python.iml" filepath="$PROJECT_DIR$/../../github_project/spark/examples/src/main/python/.idea/python.iml" />
       <module fileurl="file://$PROJECT_DIR$/../../github_project/pytorch-template/.idea/pytorch-template.iml" filepath="$PROJECT_DIR$/../../github_project/pytorch-template/.idea/pytorch-template.iml" />
